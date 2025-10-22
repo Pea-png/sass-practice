@@ -1,0 +1,122 @@
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+body {
+  font-family: "Poppins", sans-serif;
+}
+.hero {
+  @include hero(); 
+}
+.heading-primary {
+  color:$color-primary;
+}
+
+// NAVIGATION BAR
+.navbar {
+  @include navigation(); 
+}
+// BUTTON
+.btn-primary {
+  @include button(); 
+}
+
+.btn-success {
+  @include button($color-secondary, $btn-primary-text, darken($color-secondary, 5%));
+}
+
+.btn-danger {
+  @include button($color-error, $btn-primary-text, darken($color-error, 8%));
+}
+// PRODUCT CARD
+// PRODUCT LIST LAYOUT
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+
+  .product-card {
+    @include product-card;
+  }
+}
+
+.product-card {
+  @include product-card;
+}
+.dropdown {
+  @include dropdown();
+}
+// Checkbox
+.checkbox-group {
+  display: inline-flex;
+  flex-direction: column; 
+  gap: $spacing-sm;
+  border-radius: $radius-md;
+  padding: $spacing-xs;
+  
+  width: fit-content; 
+  margin: 0 auto; 
+}
+// Input
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+  max-width: 320px;
+
+  .input-label {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-small;
+    color: $color-text-primary;
+  }
+
+  .input-field {
+    @include input-field(); 
+  }
+}
+// TOGGLE
+.toggle-group {
+  display: flex;
+  align-items: center;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $spacing-sm $spacing-md;
+  width: fit-content;
+  gap: $spacing-sm;
+
+  .toggle-label {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-body;
+    color: $color-text-secondary;
+  }
+
+  .toggle {
+    @include toggle-switch();
+  }
+}
+// UI COMPONENT LAYOUT
+.layout-container {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3xl; 
+  padding: $spacing-3xl;
+  width: fit-content; 
+
+  .left-column {
+    flex-shrink: 0; 
+  }
+
+  .right-row {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-md; 
+    width: fit-content; 
+  }
+}
+.form-wrapper {
+  @include form-component();
+}

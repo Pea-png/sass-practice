@@ -1,0 +1,504 @@
+@use 'variables' as *;
+
+// navigation
+@mixin navigation(
+  $bg: $color-background,          
+  $text: $color-text-primary,     
+  $hover: $color-primary-hover     
+) {
+  background: $bg;
+  padding: $spacing-lg 0;
+  border-bottom: 1px solid $color-border;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: $container-max-width;
+    margin: auto auto;
+  }
+
+  .logo {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-nav;
+  }
+
+  nav {
+    display: flex;
+    gap: $spacing-lg;
+
+    a {
+      color: $text;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $hover;
+        text-decoration: underline;
+      }
+
+      &.active {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+
+
+// BUTTON
+@mixin button(
+  $bg: $btn-primary-bg,
+  $text: $btn-primary-text,
+  $hover-bg: $btn-primary-hover-bg
+) {
+  display: inline-block; 
+  background: $bg;
+  color: $text;
+  padding: $button-padding;
+  font-weight: $font-weight-semibold;
+  border: none; 
+  border-radius: $radius-md; 
+  text-align: center;
+  cursor: pointer; 
+  text-decoration: none;
+
+  &:hover {
+    background: $hover-bg;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+
+// HERO SECTION
+@mixin hero(
+  $bg-img: url("https://i.pinimg.com/1200x/00/32/70/003270ad0273b9628256d88a1492ff5e.jpg"),
+  $text-color: $color-text-primary,
+
+) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $text-color;
+  height: 80vh;
+  overflow: hidden;
+
+  background-image: 
+    $bg-img;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .container {
+    max-width: 800px;
+    padding: 0 $spacing-lg;
+    z-index: 2;
+  }
+
+  h1 {
+    @each $prop, $value in $h1-style {
+      #{$prop}: $value;
+    }
+    margin-bottom: $spacing-md;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  p {
+    @each $prop, $value in $p-style {
+      #{$prop}: $value;
+    }
+    margin-bottom: $spacing-lg;
+    color: darken($text-color, 10%);
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+
+    .btn-primary {
+      @include button(); 
+    }
+
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+
+// Product card
+@mixin product-card {
+  background: $color-background;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  width: 250px;
+  height: auto;
+  font-family: $font-family-base;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+
+  .card-img {
+    position: relative;
+    background: $color-background;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: $radius-md;
+    }
+
+    .fav-btn {
+      position: absolute;
+      top: $spacing-sm;
+      right: $spacing-sm;
+      background: $color-background;
+      border: none;
+      border-radius: $radius-full;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  .card-body {
+    padding: $spacing-sm;
+
+    .card-title {
+      @each $prop, $value in $h5-style {
+        #{$prop}: $value;
+      }
+      margin-bottom: $spacing-xs;
+      margin-top: $spacing-xs;
+    }
+
+    .sizes {
+      display: flex;
+      gap: $spacing-xs;
+      margin-bottom: $spacing-xs;
+
+      span {
+        background: #f2f2f2;
+        color: $color-text-link;
+        font-size: 0.85rem;
+        padding: 5px 10px;
+        border-radius: $radius-full;
+
+        &.active {
+          background: $color-background;
+          color: $color-text-link;
+        }
+      }
+    }
+
+    .card-desc {
+      @each $prop, $value in $p-style {
+        #{$prop}: $value;
+      }
+      color: $color-text-primary;
+      margin-bottom: $spacing-xs;
+      margin-top: $spacing-xs;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .price {
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-body;
+      }
+
+      .add-btn {
+        @include button(); 
+      }
+    }
+  }
+}
+// dropdown
+@mixin dropdown(
+  $bg: $color-background,
+  $text: $color-text-primary,
+  $hover-bg: $color-primary,
+  $hover-text: $btn-primary-text,
+  $border: $color-border
+) {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-toggle {
+    background: $bg;
+    color: $text;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    cursor: pointer;
+    font-weight: $font-weight-medium;
+    transition: all 0.3s ease;
+ @each $prop, $value in $h5-style {
+      #{$prop}: $value;
+    }
+    &:hover {
+      border-color: $hover-bg;
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: $bg;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    min-width: 180px;
+    margin-top: $spacing-xs;
+    overflow: hidden;
+    z-index: 10;
+
+    a {
+      display: block;
+      padding: $spacing-sm $spacing-md;
+      color: $text;
+      text-decoration: none;
+      transition: all 0.2s ease;
+ @each $prop, $value in $p-style {
+      #{$prop}: $value;
+    }
+      &:hover {
+        background: $hover-bg;
+        color: $hover-text;
+      }
+    }
+  }
+
+  &:focus-within .dropdown-menu {
+    display: block;
+  }
+}
+
+// CHECKBOX 
+@mixin checkbox-simple(
+  $check-bg: $color-primary,
+  $check-color: $color-background
+) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: $font-family-base;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  user-select: none;
+
+  input {
+    appearance: none; 
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color-border;
+    border-radius: $radius-sm;
+    margin-right: $spacing-xs;
+    background-color: $color-primary;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &:checked {
+      background-color: $color-primary; 
+      border-color: $color-primary;
+      position: relative;
+    }
+
+    &:checked::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid $color-primary;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+// INPUT
+ @mixin input-field(
+  $bg: $color-background,
+  $border: $color-border,
+  $text: $color-text-secondary,
+  $focus: $color-primary
+) {
+  width: 100%;
+  padding: $input-padding;
+  background-color: $bg;
+  color: $text;
+  border: 1.5px solid $border;
+  border-radius: $radius-md;
+  font-family: $font-family-base;
+  font-size: $font-size-body;
+  line-height: $line-height-base;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $focus;
+    box-shadow: 0 0 0 3px rgba($focus, 0.15);
+  }
+
+  &:disabled {
+    background-color: lighten($bg, 5%);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+// TOGGLE SWITCH
+@mixin toggle-switch(
+  $width: 50px,
+  $height: 26px,
+  $bg-off: $color-border,
+  $bg-on: $color-primary,
+  $knob: $color-background
+) {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $bg-off;
+    border-radius: $height;
+    transition: 0.3s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: ($height - 6px);
+      width: ($height - 6px);
+      left: 3px;
+      bottom: 3px;
+      background-color: $knob;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: $bg-on;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX($width - $height);
+  }
+}
+// FORM COMPONENT
+@mixin form-component(
+  $bg: $color-background,
+  $border: $color-border,
+  $radius: $radius-lg,
+  $shadow: $shadow-md,
+  $spacing: $spacing-md
+) {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: $spacing-lg;
+  max-width: 400px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs; 
+  font-family: $font-family-base;
+
+  // Input fields
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      font-weight: $font-weight-medium;
+      color: $color-text-secondary;
+    }
+
+    input {
+      @include input-field();
+    }
+  }
+
+.checkbox-group {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: flex-start;     
+  gap: $spacing-xs;
+
+  label {
+    @include checkbox-simple();
+  }
+}
+
+  // Button
+  .btn-primary {
+    @include button();
+    width: 100%;
+    margin-top: $spacing-sm;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
