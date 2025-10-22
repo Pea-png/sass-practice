@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>My Sass Website</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+  <div class="container">
+    <div class="logo">PEA</div>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Welcome to <span>Authentik.</span></h1>
+    <p>We help creative entrepreneurs build an honest brand & digital platform.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">START YOUR JOURNEY</a>
+    </div>
+  </div>
+</section>
+<div class="layout-container">
+  <!-- Left Column: Product -->
+   <div>
+<h2 class="heading-primary">UI Components</h2>
+  <div class="left-column">
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/1200x/00/32/70/003270ad0273b9628256d88a1492ff5e.jpg" alt="Water Bottle" />
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card</h5>
+        <p class="card-desc">Stay hydrated with this smart bottle.</p>
+        <div class="card-footer">
+          <span class="price">$137</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Right Column: Other Components -->
+  <div class="right-column">
+    <!-- Dropdown -->
+    <div class="dropdown">
+      <button class="dropdown-toggle">Select Option ▼</button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Option 1</a></li>
+        <li><a href="#">Option 2</a></li>
+        <li><a href="#">Option 3</a></li>
+      </ul>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="checkbox-group">
+      <label class="checkbox">
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+        checkbox 1
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" checked />
+        <span class="checkmark"></span>
+        checkbox 2
+      </label>
+    </div>
+
+    <!-- Input Fields -->
+    <div class="input-group">
+      <label for="email" class="input-label">Email Address</label>
+      <input type="email" id="email" class="input-field" placeholder="example@email.com" />
+    </div>
+
+    <div class="input-group">
+      <label for="password" class="input-label">Password</label>
+      <input type="password" id="password" class="input-field" placeholder="••••••••" />
+    </div>
+
+    <!-- Toggle -->
+    <div class="toggle-group">
+      <label for="notifications" class="toggle-label">Notifications</label>
+      <label class="toggle">
+        <input type="checkbox" id="notifications" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT CARD -->
+<section class="products">
+  <div class="product-list">
+ <!-- Product 1 -->
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/1200x/00/32/70/003270ad0273b9628256d88a1492ff5e.jpg" alt="Water Bottle">
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card1</h5>
+        <p class="card-desc">Stay hydrated with this smart bottle.</p>
+        <div class="card-footer">
+          <span class="price">$137</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2-->
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/736x/5e/9e/ad/5e9eadbda62f8b83c53b6775bad12b9d.jpg" alt="Water Bottle">
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card2</h5>
+        <p class="card-desc">Keeps drinks hot or cold for 12 hours.</p>
+        <div class="card-footer">
+          <span class="price">$98</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/1200x/b5/9f/d5/b59fd5e0543812059a531a56ba225e26.jpg" alt="Water Bottle">
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card3</h5>
+        <p class="card-desc">Stay hydrated with this smart bottle.</p>
+        <div class="card-footer">
+          <span class="price">$137</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+<!-- Product 4 -->
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/1200x/00/32/70/003270ad0273b9628256d88a1492ff5e.jpg" alt="Water Bottle">
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card4</h5>
+        <p class="card-desc">Stay hydrated with this smart bottle.</p>
+        <div class="card-footer">
+          <span class="price">$137</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Product 5 -->
+    <div class="product-card">
+      <div class="card-img">
+        <img src="https://i.pinimg.com/1200x/65/36/26/6536260a1afea8b0699771a1b9803182.jpg" alt="Water Bottle">
+        <button class="fav-btn">♡</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card5</h5>
+        <p class="card-desc">Stay hydrated with this smart bottle.</p>
+        <div class="card-footer">
+          <span class="price">$137</span>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<form class="form-wrapper">
+  <div class="input-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="example@email.com" />
+  </div>
+
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="••••••••" />
+  </div>
+
+  <div class="checkbox-group">
+    <label>
+      <input type="checkbox" />
+      Remember me
+    </label>
+  </div>
+
+  <button type="submit" class="btn-primary">Login</button>
+</form>
+
+
+
+</body>
+</html>
+
+
